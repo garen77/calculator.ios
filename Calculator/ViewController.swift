@@ -21,14 +21,28 @@ class ViewController: UIViewController {
     
     let buttonPressedAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
 
-    let buttonRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
+    let buttonYRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
     
+    let buttonXRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+    
+    let buttonZRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
     
     func initButtonAnimation() {
-        buttonRotationAnimation.fromValue = 0.0
-        buttonRotationAnimation.toValue = M_PI * 2
-        buttonRotationAnimation.repeatCount = 1
-        buttonRotationAnimation.duration = 0.3
+        buttonXRotationAnimation.fromValue = 0.0
+        buttonXRotationAnimation.toValue = M_PI * 2
+        buttonXRotationAnimation.repeatCount = 1
+        buttonXRotationAnimation.duration = 0.3
+
+        buttonYRotationAnimation.fromValue = 0.0
+        buttonYRotationAnimation.toValue = M_PI * 2
+        buttonYRotationAnimation.repeatCount = 1
+        buttonYRotationAnimation.duration = 0.3
+
+        buttonZRotationAnimation.fromValue = 0.0
+        buttonZRotationAnimation.toValue = M_PI * 2
+        buttonZRotationAnimation.repeatCount = 1
+        buttonZRotationAnimation.duration = 0.3
+
         var transform = CATransform3DIdentity
         transform.m34 = 1.0/500.0
         
@@ -114,7 +128,14 @@ class ViewController: UIViewController {
 
         //calcButton.layer.add(buttonPressedAnimation, forKey: "press")
 
-        calcButton.layer.add(buttonRotationAnimation, forKey: "press")
+        let randomNum = arc4random_uniform(100)
+        if(randomNum < 33) {
+            calcButton.layer.add(buttonXRotationAnimation, forKey: "press")
+        } else if(randomNum < 66) {
+            calcButton.layer.add(buttonYRotationAnimation, forKey: "press")
+        }else {
+            calcButton.layer.add(buttonZRotationAnimation, forKey: "press")
+        }
         
         
         DataManager.dataManager.manageInsertedData(calcButtonElement: calcButton.text!)
