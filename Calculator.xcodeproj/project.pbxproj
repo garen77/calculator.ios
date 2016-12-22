@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC92B04C1DD679D100AD48FC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC92B04B1DD679D100AD48FC /* DataManager.swift */; };
+		BC9EEF821E0C7CFE00863083 /* waltographUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC9EEF811E0C7CFE00863083 /* waltographUI.ttf */; };
 		BCAFC1FA1DD3C68B00028393 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFC1F91DD3C68B00028393 /* AppDelegate.swift */; };
 		BCAFC1FC1DD3C68B00028393 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFC1FB1DD3C68B00028393 /* ViewController.swift */; };
 		BCAFC1FF1DD3C68B00028393 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAFC1FD1DD3C68B00028393 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BC92B04B1DD679D100AD48FC /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BC9EEF811E0C7CFE00863083 /* waltographUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = waltographUI.ttf; sourceTree = "<group>"; };
 		BCAFC1F61DD3C68B00028393 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAFC1F91DD3C68B00028393 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAFC1FB1DD3C68B00028393 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		BCAFC1F81DD3C68B00028393 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				BC9EEF811E0C7CFE00863083 /* waltographUI.ttf */,
 				BCAFC1F91DD3C68B00028393 /* AppDelegate.swift */,
 				BC92B04B1DD679D100AD48FC /* DataManager.swift */,
 				BCBCF7B01DDE4CD3002B2C22 /* Infix2ReversePolishNotation.swift */,
@@ -136,6 +139,7 @@
 				BCAFC2041DD3C68B00028393 /* LaunchScreen.storyboard in Resources */,
 				BCAFC2011DD3C68B00028393 /* Assets.xcassets in Resources */,
 				BCAFC1FF1DD3C68B00028393 /* Main.storyboard in Resources */,
+				BC9EEF821E0C7CFE00863083 /* waltographUI.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
