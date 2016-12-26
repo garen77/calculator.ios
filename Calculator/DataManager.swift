@@ -33,6 +33,8 @@ class DataManager: NSObject {
     
     var cancelOn = true
     
+    var decimalPointPressed = false
+    
     override private init() {
         super.init()
     }
@@ -50,7 +52,8 @@ class DataManager: NSObject {
         operations = []
         parenthesisStack = []
         expression = ""
-        lockUnlockCalculatorButtonsForType(lock: false, types: [CalculatorKey.rightParenthesis,CalculatorKey.minus])
+        decimalPointPressed = false
+        lockUnlockCalculatorButtonsForType(lock: false, types: [CalculatorKey.rightParenthesis,CalculatorKey.minus,CalculatorKey.decimalPoint])
     }
     
    
@@ -64,6 +67,9 @@ class DataManager: NSObject {
             lockUnlockCalculatorButtonsForType(lock: false, types: parenthesisButtons)
             if buttonPressed.numericValue != nil || buttonPressed == .decimalPoint || buttonPressed == .minus{
                 if buttonPressed != .minus {
+                    if buttonPressed == .decimalPoint && (viewController!.calculatorButtonsMap[CalculatorKey.decimalPoint.rawValue]?.isUserInteractionEnabled)! {
+                        lockUnlockCalculatorButtonsForType(lock: true, types: [CalculatorKey.decimalPoint])
+                    }
                     currentNumber += calcButtonElement
                 }
                 
@@ -109,6 +115,8 @@ class DataManager: NSObject {
                                 expression.characters.removeLast()
                                 lastPipe = expression.characters.last
                             }
+                            lockUnlockCalculatorButtonsForType(lock: false, types: [CalculatorKey.decimalPoint])
+                            decimalPointPressed = false
                         default:break
                         }
                         if lastExprChar == Character("(") || lastExprChar == Character(")") {
@@ -131,6 +139,7 @@ class DataManager: NSObject {
                     if !currentNumber.isEmpty {
                         expression += String(DataManager.pipe) + currentNumber + String(DataManager.endPipe)
                         currentNumber = ""
+                        lockUnlockCalculatorButtonsForType(lock: false, types: [CalculatorKey.decimalPoint])
                     }
                     
                     if buttonPressed == .leftParenthesis || buttonPressed == .rightParenthesis {
@@ -166,7 +175,7 @@ class DataManager: NSObject {
 
             }
             if buttonPressed != .cancel && buttonPressed != .equal  && buttonPressed != .minus && buttonPressed != .delete {
-                viewController!.expressionLabel.text! += calcButtonElement
+                    viewController!.expressionLabel.text! += calcButtonElement
             } else if buttonPressed != .equal {
                 viewController!.expressionLabel.text! = expression.replacingOccurrences(of: "!", with: "")
                     .replacingOccurrences(of: "|", with: "")
