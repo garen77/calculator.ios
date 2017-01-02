@@ -254,7 +254,7 @@ class DataManager: NSObject {
     func lockUnlockCalculatorButtonsForType(lock: Bool,types :[CalculatorKey]) {
         for type in types {
             viewController!.calculatorButtonsMap[type.rawValue]?.isUserInteractionEnabled = !lock
-            viewController!.calculatorButtonsMap[type.rawValue]?.backgroundColor = lock ? #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1) : #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+            viewController!.calculatorButtonsMap[type.rawValue]?.backgroundColor = lock ? #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1) : #colorLiteral(red: 0.0532637462, green: 0.2073364258, blue: 1, alpha: 1)
         }
     }
     

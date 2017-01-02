@@ -64,7 +64,9 @@ class ViewController: UIViewController {
         
         for calculatorButton in calculatorButtons {
             calculatorButton.layer.borderWidth = CGFloat(integerLiteral: 3)
-            calculatorButton.layer.borderColor = UIColor.cyan.cgColor
+            calculatorButton.layer.borderColor =  #colorLiteral(red: 0.08133111149, green: 0.6469071507, blue: 1, alpha: 1).cgColor
+            
+            calculatorButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.03921568627, blue: 1, alpha: 1)
             
             let tapGestureForCalcButton = UITapGestureRecognizer(target: self, action: #selector(selectCalculatorButton))
             tapGestureForCalcButton.numberOfTapsRequired = 1
