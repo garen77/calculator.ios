@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6004D5BE1EE89FD000A65E4C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6004D5BD1EE89FD000A65E4C /* SpriteKit.framework */; };
+		600BF13D1EEB3C4300CCC20B /* ExpressionLabelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BF13C1EEB3C4300CCC20B /* ExpressionLabelScene.swift */; };
 		BC92B04C1DD679D100AD48FC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC92B04B1DD679D100AD48FC /* DataManager.swift */; };
 		BC9EEF821E0C7CFE00863083 /* waltographUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC9EEF811E0C7CFE00863083 /* waltographUI.ttf */; };
 		BCAFC1FA1DD3C68B00028393 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFC1F91DD3C68B00028393 /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6004D5BD1EE89FD000A65E4C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		600BF13C1EEB3C4300CCC20B /* ExpressionLabelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionLabelScene.swift; sourceTree = "<group>"; };
 		BC92B04B1DD679D100AD48FC /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BC9EEF811E0C7CFE00863083 /* waltographUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = waltographUI.ttf; sourceTree = "<group>"; };
 		BCAFC1F61DD3C68B00028393 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,17 +41,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6004D5BE1EE89FD000A65E4C /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6004D5BC1EE89FD000A65E4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6004D5BD1EE89FD000A65E4C /* SpriteKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCAFC1ED1DD3C68B00028393 = {
 			isa = PBXGroup;
 			children = (
 				BCAFC1F81DD3C68B00028393 /* Calculator */,
 				BCAFC1F71DD3C68B00028393 /* Products */,
+				6004D5BC1EE89FD000A65E4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +86,7 @@
 				BCAFC2001DD3C68B00028393 /* Assets.xcassets */,
 				BCAFC2021DD3C68B00028393 /* LaunchScreen.storyboard */,
 				BCAFC2051DD3C68B00028393 /* Info.plist */,
+				600BF13C1EEB3C4300CCC20B /* ExpressionLabelScene.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCAFC1FC1DD3C68B00028393 /* ViewController.swift in Sources */,
+				600BF13D1EEB3C4300CCC20B /* ExpressionLabelScene.swift in Sources */,
 				BC92B04C1DD679D100AD48FC /* DataManager.swift in Sources */,
 				BCAFC1FA1DD3C68B00028393 /* AppDelegate.swift in Sources */,
 				BCAFC20C1DD3CAE800028393 /* UIVerticalAlignLabel.swift in Sources */,
@@ -278,7 +294,7 @@
 				DEVELOPMENT_TEAM = 623MZW438K;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "crescenzo.garofalo-gmail.com.Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = "crescenzo.garofalo-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -291,7 +307,7 @@
 				DEVELOPMENT_TEAM = 623MZW438K;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "crescenzo.garofalo-gmail.com.Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = "crescenzo.garofalo-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

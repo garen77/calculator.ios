@@ -8,6 +8,9 @@
 
 import UIKit
 import QuartzCore
+import CoreMotion
+import AVFoundation
+import SpriteKit
 
 class ViewController: UIViewController {
 
@@ -27,19 +30,27 @@ class ViewController: UIViewController {
     
     let buttonZRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
     
+    var motionManager : CMMotionManager?
+
+    var speechSynthesizer = AVSpeechSynthesizer();
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        DataManager.dataManager.initVars()
+    }
+    
     func initButtonAnimation() {
         buttonXRotationAnimation.fromValue = 0.0
-        buttonXRotationAnimation.toValue = M_PI * 2
+        buttonXRotationAnimation.toValue = Double.pi * 2
         buttonXRotationAnimation.repeatCount = 1
         buttonXRotationAnimation.duration = 0.3
 
         buttonYRotationAnimation.fromValue = 0.0
-        buttonYRotationAnimation.toValue = M_PI * 2
+        buttonYRotationAnimation.toValue = Double.pi * 2
         buttonYRotationAnimation.repeatCount = 1
         buttonYRotationAnimation.duration = 0.3
 
         buttonZRotationAnimation.fromValue = 0.0
-        buttonZRotationAnimation.toValue = M_PI * 2
+        buttonZRotationAnimation.toValue = Double.pi * 2
         buttonZRotationAnimation.repeatCount = 1
         buttonZRotationAnimation.duration = 0.3
 
@@ -60,11 +71,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         DataManager.dataManager.viewController = self
         initButtonAnimation()
+        
         calcDisplayLabel.verticalAlignment = .VerticalAlignmentBottom
         
         for calculatorButton in calculatorButtons {
             calculatorButton.layer.borderWidth = CGFloat(integerLiteral: 3)
-            calculatorButton.layer.borderColor =  #colorLiteral(red: 0.08133111149, green: 0.6469071507, blue: 1, alpha: 1).cgColor
+            calculatorButton.layer.borderColor =  #colorLiteral(red: 0.9835214979, green: 1, blue: 0.06484311418, alpha: 1).cgColor
             
             calculatorButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.03921568627, blue: 1, alpha: 1)
             
@@ -85,16 +97,9 @@ class ViewController: UIViewController {
         }
         initAnimations()
         
-        
-        /*let calculatorLayer = CALayer()
-        
-        calculatorLayer.frame = CGRect(x: Double(calcDisplayLabel.frame.origin.x), y: Double(calcDisplayLabel.frame.origin.y), width: Double(calcDisplayLabel.frame.size.width - 2), height: Double(calcDisplayLabel.frame.size.height - 2))
-        calculatorLayer.backgroundColor = UIColor.blue.cgColor
-        calcDisplayLabel.layer.addSublayer(calculatorLayer)*/
-        
-        
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -116,30 +121,16 @@ class ViewController: UIViewController {
     func selectCalculatorButton(tapsender:UITapGestureRecognizer){
         
         let calcButton = tapsender.view as! UILabel
-        debugPrint("Tapped \(calcButton.text!)")
-        /*UIView.animate(withDuration: 0.1,
-                       animations: {
-                            calcButton.transform = CGAffineTransform(scaleX:0.9, y: 0.9)
-                        },
-                       completion: { finish in
-                            UIView.animate(withDuration:0.05){
-                                    calcButton.transform = CGAffineTransform.identity
-                            }
-            }
-        )*/
 
-        //calcButton.layer.add(buttonPressedAnimation, forKey: "press")
-
-        let randomNum = arc4random_uniform(100)
-        if(randomNum < 33) {
-            calcButton.layer.add(buttonXRotationAnimation, forKey: "press")
-        } else if(randomNum < 66) {
-            calcButton.layer.add(buttonYRotationAnimation, forKey: "press")
-        }else {
-            calcButton.layer.add(buttonZRotationAnimation, forKey: "press")
+        let utterance = AVSpeechUtterance(string: calcButton.text!)
+        self.speechSynthesizer.speak(utterance)
+        calcButton.layer.add(buttonPressedAnimation, forKey: "press")
+        if calcButton.text=="=" {
+            calcButton.layer.add(buttonPressedAnimation, forKey: "press")
         }
+        debugPrint("Tapped \(calcButton.text!)")
         
-        
+
         DataManager.dataManager.manageInsertedData(calcButtonElement: calcButton.text!)
         /*switch calcButton.text {
             

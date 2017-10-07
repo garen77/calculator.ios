@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import SpriteKit
 
 class DataManager: NSObject {
     static let emDash = Character("–")
@@ -54,12 +56,35 @@ class DataManager: NSObject {
         expression = ""
         decimalPointPressed = false
         lockUnlockCalculatorButtonsForType(lock: false, types: [CalculatorKey.rightParenthesis,CalculatorKey.minus,CalculatorKey.decimalPoint])
+        DataManager.dataManager.calculatorButtonsAlignment(index: 0)
     }
     
-   
+    func calculatorButtonsAlignment(index : Int) {
+        
+        for calculatorButton in (self.viewController?.calculatorButtons)! {
+            if index > 0 {
+                calculatorButton.textAlignment = .right
+                //calculatorButton.text = calculatorButton.text?.trimmingCharacters(in: CharacterSet.whitespaces)
+                //calculatorButton.text = "   " + calculatorButton.text!
+            } else if index < 0 {
+                calculatorButton.textAlignment = .left
+                //calculatorButton.text = calculatorButton.text?.trimmingCharacters(in: CharacterSet.whitespaces)
+                //calculatorButton.text = calculatorButton.text! + "   "
+            } else {
+                calculatorButton.textAlignment = .center
+                //calculatorButton.text = calculatorButton.text?.trimmingCharacters(in: CharacterSet.whitespaces)
+            }
+        }
+    }
 
     func manageInsertedData(calcButtonElement: String) {
         if let buttonPressed = CalculatorKey.fromValue(element: calcButtonElement) {
+            if buttonPressed == .addition || buttonPressed == .subtraction || buttonPressed == .multiplication || buttonPressed == .divisor || buttonPressed == .leftParenthesis {
+                
+                lockUnlockCalculatorButtonsForType(lock: true, types: operationButtons)
+            } else {
+                lockUnlockCalculatorButtonsForType(lock: false, types: operationButtons)
+            }
             if self.equalPressed {
                 initVars()
                 self.equalPressed = false
@@ -136,6 +161,8 @@ class DataManager: NSObject {
 
                 } else {
                     
+                    
+                    
                     if !currentNumber.isEmpty {
                         expression += String(DataManager.pipe) + currentNumber + String(DataManager.endPipe)
                         currentNumber = ""
@@ -165,10 +192,21 @@ class DataManager: NSObject {
                     if buttonPressed == .equal {
                         debugPrint("expressione var :  "+expression)
                         let lbl = infix2Rpn.translate(expression: expression)
-                        viewController!.calcDisplayLabel.text! = resultFromRpn(rpnExpression: lbl)
+                        var resultExpr = resultFromRpn(rpnExpression: lbl)
+                        if resultExpr.hasSuffix(".0") {
+                            resultExpr = resultExpr.replacingOccurrences(of: ".0", with: "")
+                        }
+                        viewController!.calcDisplayLabel.text! = resultExpr
+                        
+                        let utteranceResult = AVSpeechUtterance(string: viewController!.calcDisplayLabel.text!)
+                        viewController!.speechSynthesizer.speak(utteranceResult)
+
                         debugPrint(lbl)
                         self.equalPressed = true
                         expression = ""
+                        
+                        
+                        
                     }
                 }
                 
@@ -254,7 +292,7 @@ class DataManager: NSObject {
     func lockUnlockCalculatorButtonsForType(lock: Bool,types :[CalculatorKey]) {
         for type in types {
             viewController!.calculatorButtonsMap[type.rawValue]?.isUserInteractionEnabled = !lock
-            viewController!.calculatorButtonsMap[type.rawValue]?.backgroundColor = lock ? #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1) : #colorLiteral(red: 0.0532637462, green: 0.2073364258, blue: 1, alpha: 1)
+            viewController!.calculatorButtonsMap[type.rawValue]?.backgroundColor = lock ? #colorLiteral(red: 0.9686274529, green: 0.1235916506, blue: 0.03136802284, alpha: 1) : #colorLiteral(red: 0.0532637462, green: 0.2073364258, blue: 1, alpha: 1)
         }
     }
     
