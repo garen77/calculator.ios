@@ -207,10 +207,19 @@ class Infix2ReversePolishNotation: NSObject {
                                 res += operatorOnTop
                             }
                         }
-                        operatorStack.pop()
-                    case .equal:
                         if let operatorOnTop = operatorStack.pop() {
+                            debugPrint("operator discarded : \(operatorOnTop)")
+                            
+                        }
+                        //operatorStack.pop()
+                    case .equal:
+                        /*if let operatorOnTop = operatorStack.pop() {
                             res += operatorOnTop
+                        }*/
+                        while operatorStack.viewTop() != nil {
+                            if let operatorOnTop = operatorStack.pop() {
+                                res += operatorOnTop
+                            }
                         }
                     case .cancel, .delete:
                         return ""

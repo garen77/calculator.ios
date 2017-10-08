@@ -111,7 +111,7 @@ class DataManager: NSObject {
                         let firstChar = currentNumber[currentNumber.index(currentNumber.startIndex, offsetBy: 0)]
                         if(firstChar != DataManager.emDash) {
                             currentNumber = String(DataManager.emDash) + currentNumber
-                            debugPrint("currentNumber : "+currentNumber)
+                            //debugPrint("currentNumber : "+currentNumber)
                         } else if(currentNumber.isEmpty == false && firstChar == DataManager.emDash) {
                             currentNumber.remove(at: currentNumber.startIndex)
                         }
@@ -196,12 +196,13 @@ class DataManager: NSObject {
                         if resultExpr.hasSuffix(".0") {
                             resultExpr = resultExpr.replacingOccurrences(of: ".0", with: "")
                         }
+                        debugPrint("expression rpn :  "+lbl)
                         viewController!.calcDisplayLabel.text! = resultExpr
                         
                         let utteranceResult = AVSpeechUtterance(string: viewController!.calcDisplayLabel.text!)
                         viewController!.speechSynthesizer.speak(utteranceResult)
 
-                        debugPrint(lbl)
+                        //debugPrint(lbl)
                         self.equalPressed = true
                         expression = ""
                         
@@ -229,7 +230,7 @@ class DataManager: NSObject {
                 }
             }*/
             
-            debugPrint("expression is : \(expression)")
+            //debugPrint("expression is : \(expression)")
             
         }
         
