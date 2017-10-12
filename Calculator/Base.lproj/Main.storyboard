@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1020,7 +1020,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FAT-Mr-H5L">
                                 <rect key="frame" x="0.0" y="20" width="375" height="132"/>
                                 <color key="backgroundColor" red="0.9994240403175354" green="0.78443753362972635" blue="0.057182351609646159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1033,6 +1033,13 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8A-lq-Lj4" customClass="GADBannerView">
+                                <rect key="frame" x="8" y="28" width="359" height="30"/>
+                                <color key="backgroundColor" red="0.48293597404198652" green="0.49074825136410682" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2qP-pW-SH8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1040,15 +1047,19 @@
                             <constraint firstItem="OxE-eI-b2X" firstAttribute="top" secondItem="FAT-Mr-H5L" secondAttribute="bottom" id="4XE-BK-apj"/>
                             <constraint firstAttribute="trailing" secondItem="FAT-Mr-H5L" secondAttribute="trailing" id="6bv-fi-MgB"/>
                             <constraint firstItem="rI5-72-jsG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="M5E-NC-lr5"/>
+                            <constraint firstItem="c8A-lq-Lj4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="VeW-MH-6Rt"/>
                             <constraint firstAttribute="trailing" secondItem="rI5-72-jsG" secondAttribute="trailing" id="ZD5-dk-Lrw"/>
+                            <constraint firstAttribute="trailing" secondItem="c8A-lq-Lj4" secondAttribute="trailing" constant="8" id="bfz-vn-aC0"/>
                             <constraint firstItem="FAT-Mr-H5L" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cJx-YT-c5V"/>
                             <constraint firstItem="FAT-Mr-H5L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jsn-Yh-Eb7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rI5-72-jsG" secondAttribute="bottom" id="mJh-08-eFt"/>
+                            <constraint firstItem="c8A-lq-Lj4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="phv-oj-BKT"/>
                             <constraint firstAttribute="trailing" secondItem="OxE-eI-b2X" secondAttribute="trailing" id="pko-wc-HbG"/>
                             <constraint firstItem="OxE-eI-b2X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qjI-Y2-D6L"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="banner" destination="c8A-lq-Lj4" id="RCa-Xy-otO"/>
                         <outlet property="calcDisplayLabel" destination="OxE-eI-b2X" id="xHj-Wo-SkY"/>
                         <outlet property="expressionLabel" destination="FAT-Mr-H5L" id="Wnw-e2-xgG"/>
                         <outletCollection property="calculatorButtons" destination="ppg-2I-raO" collectionClass="NSMutableArray" id="SYn-At-keY"/>

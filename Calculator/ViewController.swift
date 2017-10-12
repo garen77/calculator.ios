@@ -12,8 +12,14 @@ import CoreMotion
 import AVFoundation
 import SpriteKit
 
-class ViewController: UIViewController {
+import Firebase
+import GoogleMobileAds
 
+class ViewController: UIViewController {
+    
+    let kBannerAdUnitID = "ca-app-pub-7817618166160000/4438545607"
+    @IBOutlet weak var banner: GADBannerView!
+    
     @IBOutlet var calcDisplayLabel: UIVerticalAlignLabel!
     @IBOutlet var expressionLabel: UILabel!
     
@@ -67,6 +73,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         DataManager.dataManager.viewController = self
@@ -96,7 +103,7 @@ class ViewController: UIViewController {
 
         }
         initAnimations()
-        
+        loadAd()
     }
 
     
@@ -151,5 +158,16 @@ class ViewController: UIViewController {
         }*/
     }
 
+    func loadAd() {
+        
+        
+        banner.adUnitID = kBannerAdUnitID
+        banner.rootViewController = self
+        
+        let request: GADRequest = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        banner.load(request)
+        //banner.load(GADRequest())
+    }
 }
 
