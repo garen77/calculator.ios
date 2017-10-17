@@ -546,7 +546,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98352149794924337" green="1" blue="0.064843114181928785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98352149789999999" green="1" blue="0.064843114179999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pA9-gb-mBY" firstAttribute="leading" secondItem="rI5-72-jsG" secondAttribute="leading" id="2EW-42-Lgy"/>
                                     <constraint firstItem="ldV-Xf-LUI" firstAttribute="leading" secondItem="IoC-bQ-ZxK" secondAttribute="trailing" id="2WU-SR-hSe"/>
@@ -1019,14 +1019,14 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FAT-Mr-H5L">
                                 <rect key="frame" x="0.0" y="20" width="375" height="132"/>
-                                <color key="backgroundColor" red="0.9994240403175354" green="0.78443753362972635" blue="0.057182351609646159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="backgroundColor" red="0.62286057685999485" green="0.96586430072784424" blue="0.077768952409493788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="90"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OxE-eI-b2X" customClass="UIVerticalAlignLabel" customModule="Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="152" width="375" height="65"/>
-                                <color key="backgroundColor" red="0.9994240403175354" green="0.61219260760152128" blue="0.058145263276943304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.28317713619026574" green="0.94556498527526855" blue="0.091013427064871325" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="KEz-3f-LwG"/>
                                 </constraints>
